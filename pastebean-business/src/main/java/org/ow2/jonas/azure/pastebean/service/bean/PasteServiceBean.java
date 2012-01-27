@@ -18,13 +18,21 @@ import org.ow2.jonas.azure.pastebean.service.PasteService;
 @Stateless
 public class PasteServiceBean implements PasteService {
 
-	@PersistenceContext
 	private EntityManager entityManager;
 	
-	@EJB
 	private HashService hashService;
 
-	public Paste createPaste(String name, String desc, String content) {
+    @PersistenceContext
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    @EJB
+    public void setHashService(HashService hashService) {
+        this.hashService = hashService;
+    }
+
+    public Paste createPaste(String name, String desc, String content) {
 		Paste paste = new Paste();
 		paste.setAuthor(name);
 		paste.setDescription(desc);

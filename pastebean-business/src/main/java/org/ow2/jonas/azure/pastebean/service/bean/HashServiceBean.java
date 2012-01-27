@@ -1,6 +1,7 @@
 package org.ow2.jonas.azure.pastebean.service.bean;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -19,7 +20,7 @@ public class HashServiceBean implements HashService {
 	
 	public HashServiceBean() {
 		try {
-			md = MessageDigest.getInstance("MD5");
+			md = MessageDigest.getInstance("SHA-1");
 		} catch (NoSuchAlgorithmException e) {
 			throw new IllegalStateException(e);
 		}
@@ -30,8 +31,8 @@ public class HashServiceBean implements HashService {
 		md.update(utf8(paste.getAuthor()));
 		md.update(utf8(paste.getDescription()));
 		md.update(utf8(String.valueOf(paste.getCreationDate().getTime())));
-		return new String(md.digest());
-	}
+        return toHex(md.digest());
+    }
 
 	private byte[] utf8(String fragment) {
 		if (fragment != null) {
@@ -43,5 +44,10 @@ public class HashServiceBean implements HashService {
 		}
 		return new byte[0];
 	}
+
+    private String toHex(byte[] bytes) {
+        BigInteger bi = new BigInteger(1, bytes);
+        return String.format("%0" + (bytes.length << 1) + "x", bi);
+    }
 
 }
