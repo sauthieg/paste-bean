@@ -1,0 +1,95 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: guillaume
+  Date: 26/01/12
+  Time: 23:01
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>PasteBean » Home</title>
+        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.css"/>
+        <link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+        <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
+        <style type="text/css">
+    body {
+    	padding-top: 60px;
+    }
+    section {
+      padding-top: 40px;
+    }
+    section > .row {
+      margin-bottom: 10px;
+    }
+    .topbar .brand {
+      padding: 4px;
+    }
+        </style>
+    </head>
+    <body>
+        <div class="topbar" data-dropdown="dropdown">
+            <div class="topbar-inner">
+                <div class="container-fluid">
+                    <a class="brand" href="index.jspx">
+                        <img src="images/paste-bean-logo.png" alt="PasteBean Logo"/>
+                    </a>
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="create.jspx">Create</a></li>
+                        <li><a href="paste.jspx">Paste</a></li>
+                    </ul>
+                    <form class="pull-left" action="">
+                        <input type="text" placeholder="Search"/>
+                    </form>
+                    <ul class="nav secondary-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Help</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Usage</a></li>
+                                <li><a href="#">About</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- /topbar-inner -->
+        </div><!-- /topbar -->
+
+      <div class="container-fluid">
+        <div class="sidebar">
+            <div class="well">
+           	    <h5>Latests</h5>
+           	    <ul>
+           	        <li><a href="paste.jspx">24ef876d</a></li>
+                    <li><a href="paste.jspx">afba34a2</a></li>
+           	    </ul>
+           	</div>
+        </div>
+        <div class="content">
+            <div class="hero-unit">
+                <h1>Paste Bean</h1>
+                <p>Paste Bean is a web application dedicated to host text fragments for a given amount of time. It can be used to share code sample between co-workers, ...</p>
+                <p><a href="create.jspx" class="btn primary large">New paste »</a></p>
+            </div>
+            <div class="row show-grid">
+                <div class="span-one-third">
+                    <h2>Share</h2>
+                </div>
+                <div class="span-one-third">
+                    <h2>Persistent</h2>
+                </div>
+                <div class="span-one-third">
+                    <h2>Paste</h2>
+                </div>
+            </div>
+            <footer>
+                <p>© Bull 2012</p>
+            </footer>
+        </div>
+      </div>
+    </body>
+  </html>
+</jsp:root>

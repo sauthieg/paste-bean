@@ -12,5 +12,32 @@
 
   <artifactId>pastebean-web</artifactId>
   <packaging>war</packaging>
-    
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.geronimo.specs</groupId>
+      <artifactId>geronimo-servlet_2.5_spec</artifactId>
+      <version>1.2</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.spec.ee</groupId>
+      <artifactId>ow2-jpa-2.0-spec</artifactId>
+      <version>1.0.9</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.pastebean</groupId>
+      <artifactId>pastebean-business</artifactId>
+      <type>ejb</type>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.spec.ee</groupId>
+      <artifactId>ow2-ejb-3.0-spec</artifactId>
+      <version>1.0.9</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 </project>

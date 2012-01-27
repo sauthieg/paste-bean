@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+    <jsp:useBean id="paste"
+                 beanName="paste"
+                 scope="request"
+                 type="org.ow2.jonas.azure.pastebean.model.Paste" />
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>OW2 Paste Bean</title>
+    <title>PasteBean » Create</title>
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.css"/>
     <link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
@@ -26,15 +26,15 @@ section > .row {
 }
 </style>
 </head>
-<body>
+<body onload="prettyPrint()" >
     <div class="topbar" data-dropdown="dropdown">
         <div class="topbar-inner">
             <div class="container-fluid">
-                <a class="brand" href="index.xhtml"><img src="images/paste-bean-logo.png" alt="PasteBean Logo"/></a>
+                <a class="brand" href="index.jspx"><img src="images/paste-bean-logo.png" alt="PasteBean Logo"/></a>
                 <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="create.xhtml">Create</a></li>
-                    <li><a href="paste.xhtml">Paste</a></li>
+                    <li><a href="index.jspx">Home</a></li>
+                    <li><a href="create.jspx">Create</a></li>
+                    <li class="active"><a href="#">Paste</a></li>
                 </ul>
                 <form class="pull-left" action="">
                     <input type="text" placeholder="Search"/>
@@ -54,24 +54,20 @@ section > .row {
 
   <div class="container-fluid">
     <div class="sidebar">
+        <div class="well">
+            <h5>Latests</h5>
+            <ul>
+                <li><a href="paste.jspx">24EF876D</a></li>
+            </ul>
+        </div>
     </div>
     <div class="content">
-        <div class="hero-unit">
-            <h1>Paste Bean</h1>
-            <p>Paste Bean is a web application dedicated to host text fragments for a given amount of time. It can be used to share code sample between co-workers, ...</p>
-            <p><a href="create.xhtml" class="btn primary large">New paste »</a></p>
+        <div class="page-header">
+            <h1>${paste.author} <small>${paste.description}</small></h1>
         </div>
-        <div class="row show-grid">
-            <div class="span-one-third">
-                <h2>Share</h2>
-            </div>
-            <div class="span-one-third">
-                <h2>Persistent</h2>
-            </div>
-            <div class="span-one-third">
-                <h2>Paste</h2>
-            </div>
-        </div>
+        <pre class="prettyprint">
+${paste.content}
+        </pre>
         <footer>
             <p>© Bull 2012</p>
         </footer>
@@ -79,3 +75,4 @@ section > .row {
   </div>
 </body>
 </html>
+</jsp:root>
