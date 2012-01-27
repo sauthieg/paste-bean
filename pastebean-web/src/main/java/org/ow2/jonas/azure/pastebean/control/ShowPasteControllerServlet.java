@@ -34,18 +34,18 @@ public class ShowPasteControllerServlet extends HttpServlet {
     private void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Remove the leading '/'
-        String hashFragment = request.getPathInfo().substring(1);
-        System.out.println("PathInfo: " + request.getPathInfo());
-        System.out.println("Hash: " + hashFragment);
+        String hashFragment = request.getServletPath().substring(1);
 
         List<Paste> pastes = pasteService.findMatchingPastes(hashFragment);
         
         if (pastes.isEmpty()) {
             // forward to error page
             System.out.println("Empty result: Forward to error page");
+            response.sendError(500, "No pastes found for hash: " + hashFragment);
         } else if (pastes.size() > 1) {
             // forward to error page
             System.out.println("Multiple matches: Forward to error page");
+            response.sendError(500, "Too many pastes (" + pastes.size() + ") found for hash: " + hashFragment);
         } else {
             // Only 1 match
             request.setAttribute("paste", pastes.get(0));
