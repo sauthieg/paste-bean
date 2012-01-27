@@ -38,6 +38,8 @@ public class PasteServiceBean implements PasteService {
 		paste.setDescription(desc);
 		paste.setContent(content);
 		paste.setCreationDate(new Date());
+
+        paste.setHash(hashService.createHash(paste));
 		
 		entityManager.persist(paste);
 		
@@ -56,7 +58,7 @@ public class PasteServiceBean implements PasteService {
 	@SuppressWarnings("unchecked")
 	public List<Paste> findMatchingPastes(String hashFragment) {
 		return (List<Paste>) entityManager.createNamedQuery("from_hash")
-				.setParameter("pattern", hashFragment)
+				.setParameter("pattern", hashFragment + "%")
 				.getResultList();
 	}
 
