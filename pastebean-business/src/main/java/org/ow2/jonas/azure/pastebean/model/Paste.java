@@ -12,21 +12,23 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = "all",
-            query = "SELECT * FROM Paste"),
+            query = "SELECT p FROM Paste p"),
     @NamedQuery(name = "from_hash",
-            query = "SELECT * FROM Paste p WHERE p.hash LIKE ':pattern%'")
-
+            query = "SELECT p FROM Paste p WHERE p.hash LIKE :pattern")
 })
 public class Paste implements Serializable {
 
-	   
+    private static final long serialVersionUID = 1L;
+
 	@Id
 	private String hash;
 	private String author;
 	private String description;
-	private String content;
-	private Date creationDate;
-	private static final long serialVersionUID = 1L;
+    @Column(length = 4096)
+    private String content;
+
+    @Temporal(TemporalType.DATE)
+    private Date creationDate;
 
 	public Paste() {
 		super();
