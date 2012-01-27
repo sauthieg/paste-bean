@@ -38,12 +38,10 @@ public class CreatePasteControllerServlet extends HttpServlet {
         
         Paste paste = pasteService.createPaste(author, description, content);
 
-        System.out.println("Url: " + getUrl(paste));
-        RequestDispatcher dispatcher = request.getRequestDispatcher(getUrl(paste));
-        dispatcher.forward(request, response);
+        response.sendRedirect(getUrl(paste));
     }
 
     private String getUrl(Paste paste) {
-        return "paste/" + paste.getHash().substring(0, 8);
+        return paste.getHash().substring(0, 8);
     }
 }
