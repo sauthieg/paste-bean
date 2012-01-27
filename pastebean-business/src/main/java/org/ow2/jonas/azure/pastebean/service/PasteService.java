@@ -11,4 +11,5 @@ public interface PasteService {
   void deletePaste(Paste paste);
   List<Paste> findPastes();
   List<Paste> findMatchingPastes(String hashFragment);
+  List<Paste> findLatestPastes(int i);
 }

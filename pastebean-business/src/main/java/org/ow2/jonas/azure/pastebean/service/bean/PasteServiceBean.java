@@ -62,4 +62,12 @@ public class PasteServiceBean implements PasteService {
 				.getResultList();
 	}
 
+    @SuppressWarnings("unchecked")
+    public List<Paste> findLatestPastes(int max) {
+        return (List<Paste>) entityManager.createNamedQuery("all")
+                .setFirstResult(0)
+                .setMaxResults(max)
+                .getResultList();
+    }
+
 }

@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = "all",
-            query = "SELECT p FROM Paste p"),
+            query = "SELECT p FROM Paste p ORDER BY p.creationDate"),
     @NamedQuery(name = "from_hash",
             query = "SELECT p FROM Paste p WHERE p.hash LIKE :pattern")
 })
