@@ -38,7 +38,7 @@ public class CreatePasteControllerServlet extends HttpServlet {
         String author = request.getParameter("author");
         String description = request.getParameter("desc");
         String content = request.getParameter("content");
-        
+
         Paste paste = pasteService.createPaste(author, description, content);
         
         addInSession(request.getSession(), paste);
