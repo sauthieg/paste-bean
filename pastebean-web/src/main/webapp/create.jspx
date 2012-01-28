@@ -5,66 +5,67 @@
                  class="org.ow2.jonas.azure.pastebean.nav.Navigation">
         <jsp:setProperty name="nav" property="position" value="create" />
     </jsp:useBean>
-  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>PasteBean » Create</title>
-    <jsp:include page="WEB-INF/views/html-head.jspx"/></head>
-<body>
-<jsp:include page="WEB-INF/views/navigation.jspx" />
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>PasteBean » Create</title>
+        <jsp:include page="WEB-INF/views/html-head.jspx"/>
+    </head>
+    <body>
+    <jsp:include page="WEB-INF/views/navigation.jspx" />
 
-  <div class="container-fluid">
-    <div class="sidebar">
-        <jsp:include page="WEB-INF/views/left-panel.jspx"/>
-    </div>
-    <div class="content">
-        <div class="page-header">
-            <h1>Paste bean <small>Paste your content</small></h1>
+    <div class="container-fluid">
+        <div class="sidebar">
+            <jsp:include page="WEB-INF/views/left-panel.jspx"/>
         </div>
-        <form action="create-paste" method="post">
-            <fieldset>
-                <div class="clearfix">
-                    <label for="author">Author</label>
-                    <div class="input">
-                        <div class="input-prepend">
-                            <span class="add-on">@</span>
-                            <input class="medium" id="author" name="author" size="20" type="text"/>
+        <div class="content">
+            <div class="page-header">
+                <h1>Paste bean <small>Paste your content</small></h1>
+            </div>
+            <form action="create-paste" method="post">
+                <fieldset>
+                    <div class="clearfix">
+                        <label for="author">Author</label>
+                        <div class="input">
+                            <div class="input-prepend">
+                                <span class="add-on">@</span>
+                                <input class="medium" id="author" name="author" size="20" type="text"/>
+                            </div>
+                            <span class="help-block">Author's name</span>
                         </div>
-                        <span class="help-block">Author's name</span>
                     </div>
-                </div>
 
-                <div class="clearfix">
-                    <label for="desc">Description</label>
-                    <div class="input">
-                        <div class="input-prepend">
-                            <span class="add-on">@</span>
-                            <input class="medium" id="desc" name="desc" size="30" type="text"/>
+                    <div class="clearfix">
+                        <label for="desc">Description</label>
+                        <div class="input">
+                            <div class="input-prepend">
+                                <span class="add-on">@</span>
+                                <input class="medium" id="desc" name="desc" size="30" type="text"/>
+                            </div>
+                            <span class="help-block">Paste description</span>
                         </div>
-                        <span class="help-block">Paste description</span>
                     </div>
-                </div>
 
-                <div class="clearfix">
-                    <label for="content">Content</label>
-                    <div class="input">
-                        <textarea class="xxlarge" id="content" name="content" rows="20" cols="40"/>
+                    <div class="clearfix">
+                        <label for="content">Content</label>
+                        <div class="input">
+                            <textarea class="xxlarge" id="content" name="content" rows="20" cols="40"/>
                         <span class="help-block">
                             Block of help text to describe the field above if need be.
                         </span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="actions">
-                    <input type="submit" class="btn primary" value="Paste"/>
-                    <button type="reset" class="btn">Reset</button>
-                </div>
-            </fieldset>
-        </form>
-        <footer>
-            <p>© Bull 2012</p>
-        </footer>
+                    <div class="actions">
+                        <input type="submit" class="btn primary" value="Paste"/>
+                        <button type="reset" class="btn">Reset</button>
+                    </div>
+                </fieldset>
+            </form>
+            <footer>
+                <p>© Bull 2012</p>
+            </footer>
+        </div>
     </div>
-  </div>
-</body>
-</html>
+    </body>
+    </html>
 </jsp:root>

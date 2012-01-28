@@ -3,30 +3,30 @@
                  beanName="paste"
                  scope="request"
                  type="org.ow2.jonas.azure.pastebean.model.Paste" />
-  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>PasteBean » Paste</title>
-    <jsp:include page="WEB-INF/views/html-head.jspx"/>
-</head>
-<body onload="prettyPrint()" >
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>PasteBean » Paste</title>
+        <jsp:include page="WEB-INF/views/html-head.jspx"/>
+    </head>
+    <body onload="prettyPrint()" >
 
-<jsp:include page="WEB-INF/views/navigation.jspx" />
-  <div class="container-fluid">
-    <div class="sidebar">
-        <jsp:include page="WEB-INF/views/left-panel.jspx"/>
-    </div>
-    <div class="content">
-        <div class="page-header">
-            <h1>${paste.author} <small>${paste.description}</small></h1>
+    <jsp:include page="WEB-INF/views/navigation.jspx" />
+    <div class="container-fluid">
+        <div class="sidebar">
+            <jsp:include page="WEB-INF/views/left-panel.jspx"/>
         </div>
+        <div class="content">
+            <div class="page-header">
+                <h1>${paste.author} <small>${paste.description}</small></h1>
+            </div>
         <pre class="prettyprint linenums">
             ${paste.content}
         </pre>
-        <footer>
-            <p>© Bull 2012</p>
-        </footer>
+            <footer>
+                <p>© Bull 2012</p>
+            </footer>
+        </div>
     </div>
-  </div>
-</body>
-</html>
+    </body>
+    </html>
 </jsp:root>

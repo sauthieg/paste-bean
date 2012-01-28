@@ -20,17 +20,17 @@
                  class="org.ow2.jonas.azure.pastebean.nav.Navigation">
         <jsp:setProperty name="nav" property="position" value="home" />
     </jsp:useBean>
-  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
-        xmlns:c="http://java.sun.com/jsp/jstl/core"
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
           xmlns:fn="http://java.sun.com/jsp/jstl/functions">
     <head>
         <title>PasteBean » Home</title>
         <jsp:include page="WEB-INF/views/html-head.jspx"/>
     </head>
     <body>
-      <jsp:include page="WEB-INF/views/navigation.jspx" />
+    <jsp:include page="WEB-INF/views/navigation.jspx" />
 
-      <div class="container-fluid">
+    <div class="container-fluid">
         <div class="sidebar">
             <jsp:include page="WEB-INF/views/left-panel.jspx"/>
         </div>
@@ -55,7 +55,7 @@
                 <p>© Bull 2012</p>
             </footer>
         </div>
-      </div>
+    </div>
     </body>
-  </html>
+    </html>
 </jsp:root>
