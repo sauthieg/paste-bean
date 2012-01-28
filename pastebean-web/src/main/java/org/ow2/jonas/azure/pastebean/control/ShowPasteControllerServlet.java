@@ -48,7 +48,12 @@ public class ShowPasteControllerServlet extends HttpServlet {
             response.sendError(500, "Too many pastes (" + pastes.size() + ") found for hash: " + hashFragment);
         } else {
             // Only 1 match
-            request.setAttribute("paste", pastes.get(0));
+            Paste paste = pastes.get(0);
+            String content = paste.getContent()
+                                  .replace("<", "&lt;")
+                                  .replace("\n", "<br />");
+            paste.setContent(content);
+            request.setAttribute("paste", paste);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/paste.jspx");
             dispatcher.forward(request, response);
         }
