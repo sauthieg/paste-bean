@@ -1,0 +1,41 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: guillaume
+  Date: 28/01/12
+  Time: 16:12
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+    <jsp:useBean id="nav"
+                 scope="request"
+                 class="org.ow2.jonas.azure.pastebean.nav.Navigation" />
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="topbar-inner">
+            <div class="container-fluid">
+                <a class="brand" href="${pageContext.request.contextPath}/index.jspx">
+                    <img src="${pageContext.request.contextPath}/images/paste-bean-logo.png" alt="PasteBean Logo"/>
+                </a>
+                <ul class="nav">
+                    <li class="${nav.position == 'home' ? 'active' : ''}">
+                        <a href="${pageContext.request.contextPath}/index.jspx">Home</a>
+                    </li>
+                    <li class="${nav.position == 'create' ? 'active' : ''}">
+                        <a href="${pageContext.request.contextPath}/create.jspx">Create</a>
+                    </li>
+                </ul>
+                <form class="pull-left" action="">
+                    <input type="text" placeholder="Search"/>
+                </form>
+                <ul class="nav secondary-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Help</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Usage</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /topbar-inner -->
+    </div><!-- /topbar -->
+</jsp:root>

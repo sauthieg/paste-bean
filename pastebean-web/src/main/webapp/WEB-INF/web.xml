@@ -7,7 +7,7 @@
   </filter>
   <filter-mapping>
     <filter-name>LatestPastesFilter</filter-name>
-    <url-pattern>*.jspx</url-pattern>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
   <servlet>
     <servlet-name>CreatePaste</servlet-name>
@@ -24,7 +24,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ShowPaste</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/p/*</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>

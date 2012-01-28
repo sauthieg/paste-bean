@@ -1,6 +1,8 @@
 package org.ow2.jonas.azure.pastebean.control;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -8,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.ow2.jonas.azure.pastebean.model.Paste;
 import org.ow2.jonas.azure.pastebean.service.PasteService;
@@ -37,11 +40,32 @@ public class CreatePasteControllerServlet extends HttpServlet {
         String content = request.getParameter("content");
         
         Paste paste = pasteService.createPaste(author, description, content);
+        
+        addInSession(request.getSession(), paste);
 
         response.sendRedirect(getUrl(paste));
     }
 
+    private void addInSession(HttpSession session, Paste paste) {
+        Object o = session.getAttribute("myPastes");
+        List<String> pastes;
+        if (o == null) {
+            pastes = new ArrayList<String>();
+            session.setAttribute("myPastes", pastes);
+        } else {
+            if (o instanceof List) {
+                pastes = (List<String>) o;
+            } else {
+                pastes = new ArrayList<String>();
+                session.setAttribute("myPastes", pastes);
+            }
+        }
+
+        pastes.add(paste.getHash());
+        
+    }
+
     private String getUrl(Paste paste) {
-        return paste.getHash().substring(0, 8);
+        return "p/" + paste.getHash().substring(0, 8);
     }
 }

@@ -34,7 +34,7 @@ public class ShowPasteControllerServlet extends HttpServlet {
     private void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Remove the leading '/'
-        String hashFragment = request.getServletPath().substring(1);
+        String hashFragment = request.getPathInfo().substring(1);
 
         List<Paste> pastes = pasteService.findMatchingPastes(hashFragment);
         
@@ -49,7 +49,7 @@ public class ShowPasteControllerServlet extends HttpServlet {
         } else {
             // Only 1 match
             request.setAttribute("paste", pastes.get(0));
-            RequestDispatcher dispatcher = request.getRequestDispatcher("paste.jspx");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/paste.jspx");
             dispatcher.forward(request, response);
         }
     }

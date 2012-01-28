@@ -12,69 +12,27 @@
                  beanName="latest"
                  scope="request"
                  type="java.util.Collection" />
+    <jsp:useBean id="myPastes"
+                 scope="session"
+                 class="java.util.ArrayList" />
+    <jsp:useBean id="nav"
+                 scope="request"
+                 class="org.ow2.jonas.azure.pastebean.nav.Navigation">
+        <jsp:setProperty name="nav" property="position" value="home" />
+    </jsp:useBean>
   <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
-        xmlns:c="http://java.sun.com/jsp/jstl/core">
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions">
     <head>
         <title>PasteBean » Home</title>
-        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.css"/>
-        <link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-        <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-        <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
-        <style type="text/css">
-    body {
-    	padding-top: 60px;
-    }
-    section {
-      padding-top: 40px;
-    }
-    section > .row {
-      margin-bottom: 10px;
-    }
-    .topbar .brand {
-      padding: 4px;
-    }
-        </style>
+        <jsp:include page="WEB-INF/views/html-head.jspx"/>
     </head>
     <body>
-        <div class="topbar" data-dropdown="dropdown">
-            <div class="topbar-inner">
-                <div class="container-fluid">
-                    <a class="brand" href="index.jspx">
-                        <img src="images/paste-bean-logo.png" alt="PasteBean Logo"/>
-                    </a>
-                    <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="create.jspx">Create</a></li>
-                        <li><a href="paste.jspx">Paste</a></li>
-                    </ul>
-                    <form class="pull-left" action="">
-                        <input type="text" placeholder="Search"/>
-                    </form>
-                    <ul class="nav secondary-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle">Help</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Usage</a></li>
-                                <li><a href="#">About</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div><!-- /topbar-inner -->
-        </div><!-- /topbar -->
+      <jsp:include page="WEB-INF/views/navigation.jspx" />
 
       <div class="container-fluid">
         <div class="sidebar">
-            <div class="well">
-           	    <h5>Latests</h5>
-           	    <ul>
-                    <c:forEach var="paste" items="${latest}">
-                        <li><a href="${paste.hash}">${paste.hash}</a></li>
-                    </c:forEach>
-           	    </ul>
-           	</div>
+            <jsp:include page="WEB-INF/views/left-panel.jspx"/>
         </div>
         <div class="content">
             <div class="hero-unit">

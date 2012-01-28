@@ -1,61 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+    <jsp:useBean id="nav"
+                 scope="request"
+                 class="org.ow2.jonas.azure.pastebean.nav.Navigation">
+        <jsp:setProperty name="nav" property="position" value="create" />
+    </jsp:useBean>
   <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>PasteBean » Create</title>
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.css"/>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
-    <style type="text/css">
-body {
-	padding-top: 60px;
-}
-section {
-  padding-top: 40px;
-}
-section > .row {
-  margin-bottom: 10px;
-}
-.topbar .brand {
-  padding: 4px;
-}
-</style>
-</head>
+    <jsp:include page="WEB-INF/views/html-head.jspx"/></head>
 <body>
-    <div class="topbar" data-dropdown="dropdown">
-        <div class="topbar-inner">
-            <div class="container-fluid">
-                <a class="brand" href="index.jspx"><img src="images/paste-bean-logo.png" alt="PasteBean Logo"/></a>
-                <ul class="nav">
-                    <li><a href="index.jspx">Home</a></li>
-                    <li class="active"><a href="#">Create</a></li>
-                    <li><a href="paste.jspx">Paste</a></li>
-                </ul>
-                <form class="pull-left" action="">
-                    <input type="text" placeholder="Search"/>
-                </form>
-                <ul class="nav secondary-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Help</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Usage</a></li>
-                            <li><a href="#">About</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div><!-- /topbar-inner -->
-    </div><!-- /topbar -->
+<jsp:include page="WEB-INF/views/navigation.jspx" />
 
   <div class="container-fluid">
     <div class="sidebar">
-        <div class="well">
-            <h5>Latests</h5>
-            <ul>
-                <li><a href="paste.jspx">24ef876d</a></li>
-                <li><a href="paste.jspx">afba34a2</a></li>
-            </ul>
-        </div>
+        <jsp:include page="WEB-INF/views/left-panel.jspx"/>
     </div>
     <div class="content">
         <div class="page-header">

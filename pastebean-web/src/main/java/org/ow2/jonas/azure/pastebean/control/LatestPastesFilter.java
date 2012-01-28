@@ -29,9 +29,7 @@ public class LatestPastesFilter implements Filter {
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
 
-        System.out.println("latest");
         List<Paste> latest = pasteService.findLatestPastes(10);
-        System.out.println("latests: " + latest.size());
         req.setAttribute("latest", latest);
         chain.doFilter(req, resp);
     }
