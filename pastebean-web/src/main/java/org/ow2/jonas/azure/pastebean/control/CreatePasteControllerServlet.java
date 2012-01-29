@@ -36,6 +36,9 @@ public class CreatePasteControllerServlet extends HttpServlet {
     private void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String name = request.getParameter("name");
+        if (name == null) {
+            name = "Untitled";
+        }
         String author = request.getParameter("author");
         String description = request.getParameter("desc");
         String content = request.getParameter("content");
