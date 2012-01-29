@@ -72,9 +72,7 @@
                     </div>
                 </fieldset>
             </form>
-            <footer>
-                <p>© Bull 2012</p>
-            </footer>
+            <jsp:include page="WEB-INF/views/footer.jspx" />
         </div>
     </div>
     </body>

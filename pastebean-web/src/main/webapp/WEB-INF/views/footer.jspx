@@ -1,0 +1,12 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: guillaume
+  Date: 28/01/12
+  Time: 16:12
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+    <footer>
+        <p>© Bull 2012</p>
+    </footer>
+</jsp:root>
