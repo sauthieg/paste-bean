@@ -14,7 +14,14 @@ import javax.persistence.*;
 	@NamedQuery(name = "all",
             query = "SELECT p FROM Paste p ORDER BY p.creationDate DESC"),
     @NamedQuery(name = "from_hash",
-            query = "SELECT p FROM Paste p WHERE p.hash LIKE :pattern")
+            query = "SELECT p FROM Paste p WHERE p.hash LIKE :pattern"),
+        @NamedQuery(name = "search",
+        query = "SELECT DISTINCT p FROM Paste p " +
+                "WHERE p.author LIKE :token OR " +
+                "      p.name LIKE :token OR " +
+                "      p.description LIKE :token OR " +
+                "      p.content LIKE :token " +
+                "ORDER BY p.creationDate DESC")
 })
 public class Paste implements Serializable {
 

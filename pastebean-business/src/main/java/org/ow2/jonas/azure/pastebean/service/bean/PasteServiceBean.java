@@ -71,4 +71,11 @@ public class PasteServiceBean implements PasteService {
                 .getResultList();
     }
 
+    @SuppressWarnings("unchecked")
+    public List<Paste> searchPastes(String token) {
+        return (List<Paste>) entityManager.createNamedQuery("search")
+                .setParameter("token", "%" + token + "%")
+                .getResultList();
+    }
+
 }

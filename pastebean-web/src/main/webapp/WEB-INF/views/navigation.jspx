@@ -23,8 +23,10 @@
                         <a href="${pageContext.request.contextPath}/create.jspx">Create</a>
                     </li>
                 </ul>
-                <form class="pull-left" action="">
-                    <input type="text" placeholder="Search"/>
+                <form class="pull-left"
+                      method="post"
+                      action="${pageContext.request.contextPath}/search">
+                    <input name="token" type="text" placeholder="Search" />
                 </form>
                 <ul class="nav secondary-nav">
                     <li class="dropdown">

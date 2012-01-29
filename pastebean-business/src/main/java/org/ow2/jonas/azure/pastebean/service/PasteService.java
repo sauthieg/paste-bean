@@ -12,4 +12,5 @@ public interface PasteService {
   List<Paste> findPastes();
   List<Paste> findMatchingPastes(String hashFragment);
   List<Paste> findLatestPastes(int i);
+  List<Paste> searchPastes(String token);
 }
