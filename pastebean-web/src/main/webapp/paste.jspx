@@ -19,9 +19,9 @@
             <div class="page-header">
                 <h1>${paste.author} <small>${paste.description}</small></h1>
             </div>
-        <pre class="prettyprint linenums">
-            ${paste.content}
-        </pre>
+            <pre class="prettyprint linenums">
+${paste.content}
+            </pre>
             <footer>
                 <p>© Bull 2012</p>
             </footer>
