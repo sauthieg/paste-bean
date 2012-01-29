@@ -52,20 +52,20 @@ public class CreatePasteControllerServlet extends HttpServlet {
 
     private void addInSession(HttpSession session, Paste paste) {
         Object o = session.getAttribute("myPastes");
-        List<String> pastes;
+        List<Paste> pastes;
         if (o == null) {
-            pastes = new ArrayList<String>();
+            pastes = new ArrayList<Paste>();
             session.setAttribute("myPastes", pastes);
         } else {
             if (o instanceof List) {
-                pastes = (List<String>) o;
+                pastes = (List<Paste>) o;
             } else {
-                pastes = new ArrayList<String>();
+                pastes = new ArrayList<Paste>();
                 session.setAttribute("myPastes", pastes);
             }
         }
 
-        pastes.add(paste.getHash());
+        pastes.add(paste);
         
     }
 

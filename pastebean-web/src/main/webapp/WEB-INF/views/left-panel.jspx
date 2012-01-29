@@ -13,22 +13,36 @@
     <jsp:useBean id="myPastes"
                  scope="session"
                  class="java.util.ArrayList" />
+    <jsp:useBean id="builder"
+                 scope="request"
+                 class="org.ow2.jonas.azure.pastebean.bean.AgeBuilder" />
     <div class="well"
-         xmlns:c="http://java.sun.com/jsp/jstl/core"
-         xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+         xmlns:c="http://java.sun.com/jsp/jstl/core">
         <c:if test="${not empty latest}">
             <h5>Latests</h5>
-            <ul>
+            <ul class="unstyled">
                 <c:forEach var="paste" items="${latest}">
-                    <li><a href="${pageContext.request.contextPath}/p/${paste.hash}">${fn:substring(paste.hash, 0, 8)}</a></li>
+                    <jsp:setProperty name="builder" property="paste" value="${paste}" />
+                    <li>
+                        <a href="${pageContext.request.contextPath}/p/${paste.hash}">
+                            <img src="${pageContext.request.contextPath}/images/paste-icon.png" alt="Paste Icon" /> ${paste.name}<br/>
+                        </a>
+                        ${builder.age}
+                    </li>
                 </c:forEach>
             </ul>
         </c:if>
         <c:if test="${not empty myPastes}">
             <h5>My Pastes</h5>
-            <ul>
+            <ul class="unstyled">
                 <c:forEach var="paste" items="${myPastes}">
-                    <li><a href="${pageContext.request.contextPath}/p/${paste}">${fn:substring(paste, 0, 8)}</a></li>
+                    <jsp:setProperty name="builder" property="paste" value="${paste}" />
+                    <li>
+                        <a href="${pageContext.request.contextPath}/p/${paste.hash}">
+                            <img src="${pageContext.request.contextPath}/images/paste-icon.png" alt="Paste Icon" /> ${paste.name}<br/>
+                        </a>
+                        ${builder.age}
+                    </li>
                 </c:forEach>
             </ul>
         </c:if>
