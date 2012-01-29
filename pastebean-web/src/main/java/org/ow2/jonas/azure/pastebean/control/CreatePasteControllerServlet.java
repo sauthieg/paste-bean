@@ -34,12 +34,13 @@ public class CreatePasteControllerServlet extends HttpServlet {
     }
 
     private void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
+        String name = request.getParameter("name");
         String author = request.getParameter("author");
         String description = request.getParameter("desc");
         String content = request.getParameter("content");
 
-        Paste paste = pasteService.createPaste(author, description, content);
+        Paste paste = pasteService.createPaste(name, author, description, content);
         
         addInSession(request.getSession(), paste);
 

@@ -23,6 +23,7 @@ public class Paste implements Serializable {
 	@Id
 	private String hash;
 	private String author;
+    private String name;
 	private String description;
     @Column(length = 4096)
     private String content;
@@ -39,8 +40,17 @@ public class Paste implements Serializable {
 
 	public void setHash(String hash) {
 		this.hash = hash;
-	}   
-	public String getAuthor() {
+	}
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAuthor() {
 		return this.author;
 	}
 

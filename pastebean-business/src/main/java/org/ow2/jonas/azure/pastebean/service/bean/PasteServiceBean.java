@@ -32,9 +32,10 @@ public class PasteServiceBean implements PasteService {
         this.hashService = hashService;
     }
 
-    public Paste createPaste(String name, String desc, String content) {
+    public Paste createPaste(String name, String author, String desc, String content) {
 		Paste paste = new Paste();
-		paste.setAuthor(name);
+        paste.setName(name);
+		paste.setAuthor(author);
 		paste.setDescription(desc);
 		paste.setContent(content);
 		paste.setCreationDate(new Date());

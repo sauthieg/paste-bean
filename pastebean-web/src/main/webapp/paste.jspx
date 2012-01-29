@@ -17,7 +17,8 @@
         </div>
         <div class="content">
             <div class="page-header">
-                <h1>${paste.author} <small>${paste.description}</small></h1>
+                <h1>${paste.name} <small>${paste.author}</small></h1>
+                <p>${paste.description}</p>
             </div>
             <pre class="prettyprint linenums">
 ${paste.content}
