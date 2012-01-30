@@ -26,9 +26,9 @@
                     <div class="clearfix">
                         <label for="title">Title</label>
                         <div class="input">
-                            <div class="input-prepend span4">
+                            <div class="input-prepend">
                                 <span class="add-on">@</span>
-                                <input class="medium" id="title" name="title" size="20" type="text"/>
+                                <input class="xlarge" id="title" name="title" size="20" type="text"/>
                             </div>
                             <span class="help-block">Paste's title (optional)</span>
                         </div>
@@ -39,9 +39,9 @@
                         <div class="input">
                             <div class="input-prepend">
                                 <span class="add-on">@</span>
-                                <input class="medium" id="author" name="author" size="20" type="text"/>
+                                <input class="xlarge" id="author" name="author" size="20" type="text"/>
                             </div>
-                            <span class="help-block">Author's name</span>
+                            <span class="help-block">Author's name (optional)</span>
                         </div>
                     </div>
 
@@ -50,9 +50,9 @@
                         <div class="input">
                             <div class="input-prepend">
                                 <span class="add-on">@</span>
-                                <input class="medium" id="desc" name="desc" size="30" type="text"/>
+                                <input class="xlarge" id="desc" name="desc" size="30" type="text"/>
                             </div>
-                            <span class="help-block">Paste description</span>
+                            <span class="help-block">Paste description (optional)</span>
                         </div>
                     </div>
 
