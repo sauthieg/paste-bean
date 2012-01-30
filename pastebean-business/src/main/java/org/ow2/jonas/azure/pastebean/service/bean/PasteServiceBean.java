@@ -49,7 +49,7 @@ public class PasteServiceBean implements PasteService {
 		paste.setAuthor(author);
 		paste.setDescription(desc);
 		paste.setContent(content);
-		paste.setCreationDate(new Date());
+		paste.setTimestamp(System.currentTimeMillis());
 
         paste.setHash(hashService.createHash(paste));
 		

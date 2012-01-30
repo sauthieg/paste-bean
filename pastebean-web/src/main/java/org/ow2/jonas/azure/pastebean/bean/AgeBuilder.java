@@ -24,7 +24,7 @@ public class AgeBuilder {
 
         StringBuilder sb = new StringBuilder();
 
-        long diff = System.currentTimeMillis() - paste.getCreationDate().getTime();
+        long diff = System.currentTimeMillis() - paste.getTimestamp();
 
         long inSeconds = diff / 1000;
 

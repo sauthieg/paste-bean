@@ -45,7 +45,7 @@ public class HashServiceBeanTestCase {
         Paste paste = new Paste();
         paste.setAuthor("Guillaume");
         paste.setDescription("Test paste");
-        paste.setCreationDate(new Date());
+        paste.setTimestamp(System.currentTimeMillis());
         paste.setContent("Pasted content");
         
         String hash = bean.createHash(paste);
@@ -60,7 +60,7 @@ public class HashServiceBeanTestCase {
         Paste paste = new Paste();
         paste.setAuthor(null);
         paste.setDescription("Test paste");
-        paste.setCreationDate(new Date());
+        paste.setTimestamp(System.currentTimeMillis());
         paste.setContent("Pasted content");
 
         String hash = bean.createHash(paste);
@@ -70,7 +70,7 @@ public class HashServiceBeanTestCase {
         paste = new Paste();
         paste.setAuthor("Guillaume");
         paste.setDescription(null);
-        paste.setCreationDate(new Date());
+        paste.setTimestamp(System.currentTimeMillis());
         paste.setContent("Pasted content");
 
         String hash2 = bean.createHash(paste);
@@ -84,7 +84,7 @@ public class HashServiceBeanTestCase {
         Paste paste = new Paste();
         paste.setAuthor("Guillaume");
         paste.setDescription("Test paste");
-        paste.setCreationDate(new Date());
+        paste.setTimestamp(System.currentTimeMillis());
         paste.setContent("Pasted content");
 
         String hash = bean.createHash(paste);

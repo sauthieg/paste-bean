@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = "all",
-            query = "SELECT p FROM Paste p ORDER BY p.creationDate DESC"),
+            query = "SELECT p FROM Paste p ORDER BY p.timestamp DESC"),
     @NamedQuery(name = "from_hash",
             query = "SELECT p FROM Paste p WHERE p.hash LIKE :pattern"),
         @NamedQuery(name = "search",
@@ -21,7 +21,7 @@ import javax.persistence.*;
                 "      p.title LIKE :token OR " +
                 "      p.description LIKE :token OR " +
                 "      p.content LIKE :token " +
-                "ORDER BY p.creationDate DESC")
+                "ORDER BY p.timestamp DESC")
 })
 public class Paste implements Serializable {
 
@@ -35,8 +35,7 @@ public class Paste implements Serializable {
     @Column(length = 4096)
     private String content;
 
-    @Temporal(TemporalType.DATE)
-    private Date creationDate;
+    private Long timestamp;
 
 	public Paste() {
 		super();
@@ -78,12 +77,12 @@ public class Paste implements Serializable {
 	public void setContent(String content) {
 		this.content = content;
 	}   
-	public Date getCreationDate() {
-		return this.creationDate;
+	public Long getTimestamp() {
+		return this.timestamp;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
+	public void setTimestamp(Long timestamp) {
+		this.timestamp = timestamp;
 	}
    
 }

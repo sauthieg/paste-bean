@@ -30,7 +30,7 @@ public class HashServiceBean implements HashService {
 		md.update(utf8(paste.getContent()));
 		md.update(utf8(paste.getAuthor()));
 		md.update(utf8(paste.getDescription()));
-		md.update(utf8(String.valueOf(paste.getCreationDate().getTime())));
+		md.update(utf8(String.valueOf(paste.getTimestamp())));
         return toHex(md.digest());
     }
 
