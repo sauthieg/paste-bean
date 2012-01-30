@@ -23,7 +23,7 @@
                         <a href="${pageContext.request.contextPath}/create.jspx">Create</a>
                     </li>
                 </ul>
-                <form class="pull-left"
+                <form class="pull-right"
                       method="post"
                       action="${pageContext.request.contextPath}/search">
                     <input name="token" type="text" placeholder="Search" />
