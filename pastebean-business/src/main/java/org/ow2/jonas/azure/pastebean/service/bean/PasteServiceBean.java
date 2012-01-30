@@ -43,9 +43,9 @@ public class PasteServiceBean implements PasteService {
         this.timerService = timerService;
     }
 
-    public Paste createPaste(String name, String author, String desc, String content) {
+    public Paste createPaste(String title, String author, String desc, String content) {
 		Paste paste = new Paste();
-        paste.setName(name);
+        paste.setTitle(title);
 		paste.setAuthor(author);
 		paste.setDescription(desc);
 		paste.setContent(content);

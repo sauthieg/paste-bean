@@ -36,7 +36,7 @@
                     <tbody>
                     <tr>
                         <td><a href="${pageContext.request.contextPath}/p/${paste.hash}">${fn:substring(paste.hash, 0, 8)}</a></td>
-                        <td>${paste.name}</td>
+                        <td>${paste.title}</td>
                         <td>${paste.description}</td>
                     </tr>
                     </tbody>

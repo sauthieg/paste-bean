@@ -18,7 +18,7 @@ import javax.persistence.*;
         @NamedQuery(name = "search",
         query = "SELECT DISTINCT p FROM Paste p " +
                 "WHERE p.author LIKE :token OR " +
-                "      p.name LIKE :token OR " +
+                "      p.title LIKE :token OR " +
                 "      p.description LIKE :token OR " +
                 "      p.content LIKE :token " +
                 "ORDER BY p.creationDate DESC")
@@ -30,7 +30,7 @@ public class Paste implements Serializable {
 	@Id
 	private String hash;
 	private String author;
-    private String name;
+    private String title;
 	private String description;
     @Column(length = 4096)
     private String content;
@@ -49,20 +49,20 @@ public class Paste implements Serializable {
 		this.hash = hash;
 	}
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getAuthor() {
 		return this.author;
 	}
 
-	public void setAuthor(String name) {
-		this.author = name;
+	public void setAuthor(String author) {
+		this.author = author;
 	}   
 	public String getDescription() {
 		return this.description;

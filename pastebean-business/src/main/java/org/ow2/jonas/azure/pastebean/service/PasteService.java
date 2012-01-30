@@ -7,7 +7,7 @@ import org.ow2.jonas.azure.pastebean.model.Paste;
 
 @Local
 public interface PasteService {
-  Paste createPaste(String name, String author, String desc, String content);
+  Paste createPaste(String title, String author, String desc, String content);
   void deletePaste(Paste paste);
   List<Paste> findPastes();
   List<Paste> findMatchingPastes(String hashFragment);

@@ -25,7 +25,7 @@
                     <jsp:setProperty name="builder" property="paste" value="${paste}" />
                     <li>
                         <a href="${pageContext.request.contextPath}/p/${paste.hash}">
-                            <img src="${pageContext.request.contextPath}/images/paste-icon.png" alt="Paste Icon" /> ${paste.name}<br/>
+                            <img src="${pageContext.request.contextPath}/images/paste-icon.png" alt="Paste Icon" /> ${paste.title}<br/>
                         </a>
                         ${builder.age}
                     </li>
@@ -40,7 +40,7 @@
                     <jsp:setProperty name="builder" property="paste" value="${paste}" />
                     <li>
                         <a href="${pageContext.request.contextPath}/p/${paste.hash}">
-                            <img src="${pageContext.request.contextPath}/images/paste-icon.png" alt="Paste Icon" /> ${paste.name}<br/>
+                            <img src="${pageContext.request.contextPath}/images/paste-icon.png" alt="Paste Icon" /> ${paste.title}<br/>
                         </a>
                         ${builder.age}
                     </li>
