@@ -6,12 +6,12 @@
   To change this template use File | Settings | File Templates.
 -->
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.css"/>
-    <link href="${pageContext.request.contextPath}/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/bootstrap-1.4.min.css" type="text/css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/google-code-prettify/prettify.css" type="text/css" />
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/google-code-prettify/prettify.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap-dropdown-1.4.js"></script>
     <style type="text/css">
         body {
             padding-top: 60px;
