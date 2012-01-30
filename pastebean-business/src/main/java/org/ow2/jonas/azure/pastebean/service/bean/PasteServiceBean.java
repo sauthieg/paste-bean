@@ -3,8 +3,12 @@ package org.ow2.jonas.azure.pastebean.service.bean;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ejb.Timeout;
+import javax.ejb.Timer;
+import javax.ejb.TimerService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -22,6 +26,8 @@ public class PasteServiceBean implements PasteService {
 	
 	private HashService hashService;
 
+    private TimerService timerService;
+
     @PersistenceContext
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -30,6 +36,11 @@ public class PasteServiceBean implements PasteService {
     @EJB
     public void setHashService(HashService hashService) {
         this.hashService = hashService;
+    }
+
+    @Resource
+    public void setTimerService(TimerService timerService) {
+        this.timerService = timerService;
     }
 
     public Paste createPaste(String name, String author, String desc, String content) {
@@ -43,12 +54,21 @@ public class PasteServiceBean implements PasteService {
         paste.setHash(hashService.createHash(paste));
 		
 		entityManager.persist(paste);
-		
+
+        // 10 minutes
+        Timer t = timerService.createTimer(10 * 60 * 1000, paste);
+
 		return paste;
 	}
 
+    @Timeout
+    private void endOfLife(Timer timer) {
+        deletePaste((Paste) timer.getInfo());
+    }
+
 	public void deletePaste(Paste paste) {
-		entityManager.remove(paste);
+        Paste p = entityManager.merge(paste);
+		entityManager.remove(p);
 	}
 
 	@SuppressWarnings("unchecked")

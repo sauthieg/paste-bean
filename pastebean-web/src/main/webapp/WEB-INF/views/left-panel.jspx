@@ -32,6 +32,7 @@
                 </c:forEach>
             </ul>
         </c:if>
+<!--
         <c:if test="${not empty myPastes}">
             <h5>My Pastes</h5>
             <ul class="unstyled">
@@ -46,5 +47,6 @@
                 </c:forEach>
             </ul>
         </c:if>
+-->
     </div>
 </jsp:root>
