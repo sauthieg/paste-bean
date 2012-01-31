@@ -36,6 +36,10 @@
     <servlet-name>SearchPaste</servlet-name>
     <servlet-class>org.ow2.jonas.azure.pastebean.control.SearchPasteControllerServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>About</servlet-name>
+    <servlet-class>org.ow2.jonas.azure.pastebean.control.AboutControllerServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>CreatePaste</servlet-name>
@@ -48,6 +52,10 @@
   <servlet-mapping>
     <servlet-name>SearchPaste</servlet-name>
     <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>About</servlet-name>
+    <url-pattern>/about</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
