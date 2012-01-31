@@ -45,19 +45,30 @@
         </div>
         <div class="content">
             <div class="hero-unit">
-                <h1>Paste Bean</h1>
-                <p>Paste Bean is a web application dedicated to host text fragments for a given amount of time. It can be used to share code sample between co-workers, ...</p>
+                <h1>Paste<i>Bean</i></h1>
+                <p>PasteBean is a web application dedicated to host text fragments for
+                    a given amount of time. It can be used to share code sample between
+                    co-workers, ...</p>
+                <p>Just think of a web based clipboard !</p>
                 <p><a href="create.jspx" class="btn primary large">New paste »</a></p>
             </div>
             <div class="row show-grid">
                 <div class="span-one-third">
+                    <h2>Cloud</h2>
+                    <p>PasteBean is running on <a href="http://jonas.ow2.org">OW2 JOnAS</a> and
+                        hosted by <a href="http://www.windowsazure.com/">Windows Azure</a>.</p>
+                    <img src="images/jonas-logo.png" alt="OW2 JOnAS" width="120px"/>
+                    <img src="images/azure-logo.png" alt="Microsoft Azure" width="120px"/>
+                </div>
+                <div class="span-one-third">
                     <h2>Share</h2>
+                    <p>Immediately share any valuable content with anyone. Just copy the paste's
+                        URL and transmit it to anyone interested.</p>
                 </div>
                 <div class="span-one-third">
                     <h2>Persistent</h2>
-                </div>
-                <div class="span-one-third">
-                    <h2>Paste</h2>
+                    <p>Paste are persisted for a given amount of time (this is configurable).</p>
+                    <img src="images/sql-azure-logo.png" alt="SQL Azure" width="200px"/>
                 </div>
             </div>
             <jsp:include page="WEB-INF/views/footer.jspx" />
