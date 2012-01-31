@@ -15,6 +15,6 @@
   -->
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
     <footer>
-        <p>© Bull 2012</p>
+        <p>© <a href="http://www.bull.com">Bull</a> 2012. Built with <a href="http://twitter.github.com/bootstrap">Bootstrap</a></p>
     </footer>
 </jsp:root>
