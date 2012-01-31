@@ -36,48 +36,98 @@
             <div class="page-header">
                 <h1>Paste bean <small>Paste your content</small></h1>
             </div>
-            <form action="create-paste" method="post">
+            <form action="create-paste" method="post" class="form-stacked">
                 <fieldset>
-                    <div class="clearfix">
-                        <label for="title">Title</label>
-                        <div class="input">
-                            <div class="input-prepend">
-                                <span class="add-on">@</span>
-                                <input class="xlarge" id="title" name="title" size="20" type="text"/>
-                            </div>
-                            <span class="help-block">Paste's title (optional)</span>
-                        </div>
+                    <!-- Title + Author -->
+                    <div class="row">
+                      <div class="span8">
+                          <div class="clearfix">
+                              <label for="title">Title</label>
+                              <div class="input">
+                                  <div class="input-prepend">
+                                      <span class="add-on">@</span>
+                                      <input class="xlarge" id="title" name="title" size="20" type="text"/>
+                                  </div>
+                                  <span class="help-block">Paste's title (optional)</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="span8">
+                          <div class="clearfix">
+                              <label for="author">Author</label>
+                              <div class="input">
+                                  <div class="input-prepend">
+                                      <span class="add-on">@</span>
+                                      <input class="xlarge" id="author" name="author" size="20" type="text"/>
+                                  </div>
+                                  <span class="help-block">Author's name (optional)</span>
+                              </div>
+                          </div>
+                      </div>
                     </div>
-
-                    <div class="clearfix">
-                        <label for="author">Author</label>
-                        <div class="input">
-                            <div class="input-prepend">
-                                <span class="add-on">@</span>
-                                <input class="xlarge" id="author" name="author" size="20" type="text"/>
-                            </div>
-                            <span class="help-block">Author's name (optional)</span>
-                        </div>
+                    <!-- Description + Language -->
+                    <div class="row">
+                      <div class="span8">
+                          <div class="clearfix">
+                              <label for="desc">Description</label>
+                              <div class="input">
+                                  <div class="input-prepend">
+                                      <span class="add-on">@</span>
+                                      <input class="xlarge" id="desc" name="desc" size="30" type="text"/>
+                                  </div>
+                                  <span class="help-block">Paste description (optional)</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="span8">
+                          <div class="clearfix">
+                              <label for="language">Language</label>
+                              <div class="input">
+                                  <div class="input-prepend">
+                                      <span class="add-on">@</span>
+                                      <select name="language" id="language">
+                                          <option selected="true" value="auto">Auto</option>
+                                          <option value="java">Java</option>
+                                          <option value="js">Javascript</option>
+                                          <option value="c">C</option>
+                                          <option value="cpp">C++</option>
+                                          <option value="cs">C#</option>
+                                          <option value="bsh">Bash</option>
+                                      </select>
+                                  </div>
+                                  <span class="help-block">Paste's language (optional, if missing, auto-detected)</span>
+                              </div>
+                          </div>
+                      </div>
                     </div>
-
-                    <div class="clearfix">
-                        <label for="desc">Description</label>
-                        <div class="input">
-                            <div class="input-prepend">
-                                <span class="add-on">@</span>
-                                <input class="xlarge" id="desc" name="desc" size="30" type="text"/>
-                            </div>
-                            <span class="help-block">Paste description (optional)</span>
-                        </div>
+                    <!-- Timeout + ? -->
+                    <div class="row">
+                      <div class="span8">
+                          <div class="clearfix">
+                              <label for="timeout">Timeout</label>
+                              <div class="input">
+                                  <div class="input-prepend">
+                                      <span class="add-on">@</span>
+                                      <select name="timeout" id="timeout">
+                                          <option selected="true" value="1">1 Minute</option>
+                                          <option value="10">10 Minutes</option>
+                                          <option value="60">1 Hour</option>
+                                          <option value="1440">1 Day</option>
+                                      </select>
+                                  </div>
+                                  <span class="help-block">Duration while paste will be available (optional)</span>
+                              </div>
+                          </div>
+                      </div>
                     </div>
 
                     <div class="clearfix">
                         <label for="content">Content</label>
                         <div class="input">
                             <textarea class="xxlarge" id="content" name="content" rows="20" cols="40"/>
-                        <span class="help-block">
-                            Content of the paste. Can be any textual value.
-                        </span>
+                            <span class="help-block">
+                                Content of the paste. Can be any textual value.
+                            </span>
                         </div>
                     </div>
 

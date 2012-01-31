@@ -16,7 +16,6 @@
 
 package org.ow2.jonas.azure.pastebean.service.bean;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -59,20 +58,20 @@ public class PasteServiceBean implements PasteService {
         this.timerService = timerService;
     }
 
-    public Paste createPaste(String title, String author, String desc, String content) {
+    public Paste createPaste(String title, String author, String desc, String content, String language, Long timeoutInMs) {
 		Paste paste = new Paste();
         paste.setTitle(title);
 		paste.setAuthor(author);
 		paste.setDescription(desc);
 		paste.setContent(content);
+        paste.setLanguage(language);
 		paste.setTimestamp(System.currentTimeMillis());
-
         paste.setHash(hashService.createHash(paste));
 		
 		entityManager.persist(paste);
 
-        // 10 minutes
-        Timer t = timerService.createTimer(10 * 60 * 1000, paste);
+        // Engage a Timer
+        timerService.createTimer(timeoutInMs, paste);
 
 		return paste;
 	}

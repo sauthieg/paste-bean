@@ -58,8 +58,13 @@ public class CreatePasteControllerServlet extends HttpServlet {
         String author = request.getParameter("author");
         String description = request.getParameter("desc");
         String content = request.getParameter("content");
+        String language = request.getParameter("language");
+        String timeout = request.getParameter("timeout");
 
-        Paste paste = pasteService.createPaste(title, author, description, content);
+        // timeout is declared in minutes
+        Long timeoutInMs = Long.valueOf(timeout) * 60 * 1000;
+
+        Paste paste = pasteService.createPaste(title, author, description, content, language, timeoutInMs);
         
         addInSession(request.getSession(), paste);
 

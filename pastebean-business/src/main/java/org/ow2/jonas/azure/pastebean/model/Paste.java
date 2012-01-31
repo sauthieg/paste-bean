@@ -50,6 +50,7 @@ public class Paste implements Serializable {
 	private String description;
     @Column(length = 4096)
     private String content;
+    private String language;
 
     private Long timestamp;
 
@@ -101,4 +102,12 @@ public class Paste implements Serializable {
 		this.timestamp = timestamp;
 	}
    
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
 }

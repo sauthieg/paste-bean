@@ -19,7 +19,10 @@
                  beanName="paste"
                  scope="request"
                  type="org.ow2.jonas.azure.pastebean.model.Paste" />
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xml:lang="en" lang="en">
     <head>
         <title>PasteBean » Paste</title>
         <jsp:include page="WEB-INF/views/html-head.jspx"/>
@@ -36,8 +39,10 @@
                 <h1>${paste.title} <small>${paste.author}</small></h1>
                 <p>${paste.description}</p>
             </div>
-            <pre class="prettyprint linenums">
+            <pre class="prettyprint">
+                <code class="${paste.language == 'auto' ? '' : 'language-'}${paste.language == 'auto' ? '' : paste.language}">
 ${paste.content}
+                </code>
             </pre>
             <jsp:include page="WEB-INF/views/footer.jspx" />
         </div>
