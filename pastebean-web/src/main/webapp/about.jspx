@@ -19,7 +19,7 @@
           version="2.0">
     <jsp:useBean id="nav"
                  scope="request"
-                 class="org.ow2.jonas.azure.pastebean.nav.Navigation">
+                 class="org.ow2.jonas.azure.pastebean.bean.Navigation">
         <jsp:setProperty name="nav" property="position" value="about" />
     </jsp:useBean>
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"

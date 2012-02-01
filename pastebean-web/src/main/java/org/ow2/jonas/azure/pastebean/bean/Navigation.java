@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.ow2.jonas.azure.pastebean.nav;
+package org.ow2.jonas.azure.pastebean.bean;
 
 /**
  * Created by IntelliJ IDEA.

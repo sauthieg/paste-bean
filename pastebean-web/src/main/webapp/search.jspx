@@ -17,7 +17,7 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
     <jsp:useBean id="nav"
                  scope="request"
-                 class="org.ow2.jonas.azure.pastebean.nav.Navigation">
+                 class="org.ow2.jonas.azure.pastebean.bean.Navigation">
         <jsp:setProperty name="nav" property="position" value="create" />
     </jsp:useBean>
     <jsp:useBean id="matches"
@@ -45,7 +45,7 @@
             </div>
             <table>
                 <thead>
-                <tr><td>#</td><td>Title</td><td>Description</td></tr>
+                <tr><th>#</th><th>Title</th><th>Description</th></tr>
                 </thead>
                 <c:forEach var="paste" items="${matches}">
                     <tbody>
