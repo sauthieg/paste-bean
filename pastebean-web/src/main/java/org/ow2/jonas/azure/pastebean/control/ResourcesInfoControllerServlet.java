@@ -19,7 +19,7 @@ import com.microsoft.windowsazure.serviceruntime.RoleInstanceEndpoint;
  *
  * @author Guillaume Sauthier
  */
-public class AboutControllerServlet extends HttpServlet {
+public class ResourcesInfoControllerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         execute(request, response);
     }
@@ -33,7 +33,7 @@ public class AboutControllerServlet extends HttpServlet {
         request.setAttribute("roles", RoleEnvironment.getRoles().values());
         request.setAttribute("currentInstance", RoleEnvironment.getCurrentRoleInstance());
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/about.jspx");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/resources.jspx");
         dispatcher.forward(request, response);
 
     }

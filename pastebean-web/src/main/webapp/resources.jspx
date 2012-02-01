@@ -20,7 +20,7 @@
     <jsp:useBean id="nav"
                  scope="request"
                  class="org.ow2.jonas.azure.pastebean.nav.Navigation">
-        <jsp:setProperty name="nav" property="position" value="about" />
+        <jsp:setProperty name="nav" property="position" value="resources" />
     </jsp:useBean>
     <jsp:useBean id="deploymentId"
                  scope="request"
@@ -37,7 +37,7 @@
           xmlns:c="http://java.sun.com/jsp/jstl/core"
           xmlns:fn="http://java.sun.com/jsp/jstl/functions">
     <head>
-        <title>PasteBean » About</title>
+        <title>PasteBean » Resources</title>
         <jsp:include page="WEB-INF/views/html-head.jspx"/>
         <style type="text/css">
             table tbody tr.active {
@@ -54,7 +54,7 @@
         </div>
         <div class="content">
             <div class="page-header">
-                <h1>Deployment <small>(${deploymentId})</small></h1>
+                <h1>Resources <small>(deployment ID: ${deploymentId})</small></h1>
             </div>
 
             <table>
