@@ -36,12 +36,12 @@
         </div>
         <div class="content">
             <div class="page-header">
-                <h1>${paste.title} <small>${paste.author}</small></h1>
-                <p>${paste.description}</p>
+                <h1>${fn:escapeXml(paste.title)} <small>${fn:escapeXml(paste.author)}</small></h1>
+                <p>${fn:escapeXml(paste.description)}</p>
             </div>
             <pre class="prettyprint">
                 <code class="${paste.language == 'auto' ? '' : 'language-'}${paste.language == 'auto' ? '' : paste.language}">
-${paste.content}
+${fn:escapeXml(paste.content)}
                 </code>
             </pre>
             <jsp:include page="WEB-INF/views/footer.jspx" />

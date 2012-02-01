@@ -41,7 +41,7 @@
         </div>
         <div class="content">
             <div class="page-header">
-                <h1>${param['token']} <small>(${fn:length(matches)} results)</small></h1>
+                <h1>${fn:escapeXml(param['token'])} <small>(${fn:length(matches)} results)</small></h1>
             </div>
             <table>
                 <thead>
@@ -51,8 +51,8 @@
                     <tbody>
                     <tr>
                         <td><a href="${pageContext.request.contextPath}/p/${paste.hash}">${fn:substring(paste.hash, 0, 8)}</a></td>
-                        <td>${paste.title}</td>
-                        <td>${paste.description}</td>
+                        <td>${fn:escapeXml(paste.title)}</td>
+                        <td>${fn:escapeXml(paste.description)}</td>
                     </tr>
                     </tbody>
                 </c:forEach>

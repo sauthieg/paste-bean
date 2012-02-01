@@ -65,9 +65,6 @@ public class ShowPasteControllerServlet extends HttpServlet {
         } else {
             // Only 1 match
             Paste paste = pastes.get(0);
-            String content = paste.getContent()
-                                  .replace("<", "&lt;");
-            paste.setContent(content);
             request.setAttribute("paste", paste);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/paste.jspx");
             dispatcher.forward(request, response);

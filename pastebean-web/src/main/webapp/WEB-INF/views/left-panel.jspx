@@ -25,7 +25,8 @@
                  scope="request"
                  class="org.ow2.jonas.azure.pastebean.bean.AgeBuilder" />
     <div class="well"
-         xmlns:c="http://java.sun.com/jsp/jstl/core">
+         xmlns:c="http://java.sun.com/jsp/jstl/core"
+         xmlns:fn="http://java.sun.com/jsp/jstl/functions">
         <c:if test="${not empty latest}">
             <h5>Latests</h5>
             <ul class="unstyled">
@@ -33,7 +34,7 @@
                     <jsp:setProperty name="builder" property="paste" value="${paste}" />
                     <li>
                         <a href="${pageContext.request.contextPath}/p/${paste.hash}">
-                            <img src="${pageContext.request.contextPath}/images/paste-icon.png" alt="Paste Icon" /> ${paste.title}<br/>
+                            <img src="${pageContext.request.contextPath}/images/paste-icon.png" alt="Paste Icon" /> ${fn:escapeXml(paste.title)}<br/>
                         </a>
                         ${builder.age}
                     </li>
