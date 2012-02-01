@@ -41,7 +41,7 @@
                     <li class="dropdown ${fn:contains(nav.position, '/help') ? 'active' : ''}">
                         <a href="#" class="dropdown-toggle">Help</a>
                         <ul class="dropdown-menu">
-                            <li class="${nav.position == '/help/usage' ? 'active' : ''}"><a href="#">Usage</a></li>
+                            <li class="${nav.position == '/help/usage' ? 'active' : ''}"><a href="${pageContext.request.contextPath}/usage.jspx">Usage</a></li>
                             <li class="${nav.position == '/help/resources' ? 'active' : ''}"><a href="${pageContext.request.contextPath}/resources-info">Resources Info</a></li>
                             <li class="${nav.position == '/help/about' ? 'active' : ''}"><a href="${pageContext.request.contextPath}/about">About</a></li>
                         </ul>
