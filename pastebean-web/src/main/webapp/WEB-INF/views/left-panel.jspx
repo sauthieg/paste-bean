@@ -18,9 +18,6 @@
                  beanName="latest"
                  scope="request"
                  type="java.util.Collection" />
-    <jsp:useBean id="myPastes"
-                 scope="session"
-                 class="java.util.ArrayList" />
     <jsp:useBean id="builder"
                  scope="request"
                  class="org.ow2.jonas.azure.pastebean.bean.AgeBuilder" />
@@ -41,21 +38,5 @@
                 </c:forEach>
             </ul>
         </c:if>
-<!--
-        <c:if test="${not empty myPastes}">
-            <h5>My Pastes</h5>
-            <ul class="unstyled">
-                <c:forEach var="paste" items="${myPastes}">
-                    <jsp:setProperty name="builder" property="paste" value="${paste}" />
-                    <li>
-                        <a href="${pageContext.request.contextPath}/p/${paste.hash}">
-                            <img src="${pageContext.request.contextPath}/images/paste-icon.png" alt="Paste Icon" /> ${paste.title}<br/>
-                        </a>
-                        ${builder.age}
-                    </li>
-                </c:forEach>
-            </ul>
-        </c:if>
--->
     </div>
 </jsp:root>
