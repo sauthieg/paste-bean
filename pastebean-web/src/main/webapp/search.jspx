@@ -31,6 +31,29 @@
     <head>
         <title>PasteBean » Search</title>
         <jsp:include page="WEB-INF/views/html-head.jspx"/>
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                $('#search-results tr').click(function() {
+                    var href = $(this).find("a").attr("href");
+                    if (href) {
+                        window.location = href;
+                    }
+                });
+
+            });
+        </script>
+        <style type="text/css">
+            #search-results tr:hover {
+                background-color: #b0c4de;
+            }
+            #search-results td:hover {
+                cursor: pointer;
+            }
+            #search-results thead tr th {
+                background-color: #ffffff;
+            }
+        </style>
     </head>
     <body>
     <jsp:include page="WEB-INF/views/navigation.jspx" />
@@ -43,7 +66,7 @@
             <div class="page-header">
                 <h1>${fn:escapeXml(param['token'])} <small>(${fn:length(matches)} results)</small></h1>
             </div>
-            <table>
+            <table id="search-results">
                 <thead>
                 <tr><th>#</th><th>Title</th><th>Description</th></tr>
                 </thead>
