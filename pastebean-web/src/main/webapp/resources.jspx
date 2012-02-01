@@ -20,7 +20,7 @@
     <jsp:useBean id="nav"
                  scope="request"
                  class="org.ow2.jonas.azure.pastebean.bean.Navigation">
-        <jsp:setProperty name="nav" property="position" value="resources" />
+        <jsp:setProperty name="nav" property="position" value="/help/resources" />
     </jsp:useBean>
     <jsp:useBean id="deploymentId"
                  scope="request"

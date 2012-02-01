@@ -17,17 +17,18 @@
     <jsp:useBean id="nav"
                  scope="request"
                  class="org.ow2.jonas.azure.pastebean.bean.Navigation" />
-    <div class="topbar" data-dropdown="dropdown">
+    <div class="topbar" data-dropdown="dropdown"
+         xmlns:fn="http://java.sun.com/jsp/jstl/functions">
         <div class="topbar-inner">
             <div class="container-fluid">
                 <a class="brand" href="${pageContext.request.contextPath}/index.jspx">
                     <img src="${pageContext.request.contextPath}/images/paste-bean-logo.png" alt="PasteBean Logo"/>
                 </a>
                 <ul class="nav">
-                    <li class="${nav.position == 'home' ? 'active' : ''}">
+                    <li class="${nav.position == '/home' ? 'active' : ''}">
                         <a href="${pageContext.request.contextPath}/index.jspx">Home</a>
                     </li>
-                    <li class="${nav.position == 'create' ? 'active' : ''}">
+                    <li class="${nav.position == '/create' ? 'active' : ''}">
                         <a href="${pageContext.request.contextPath}/create.jspx">Create</a>
                     </li>
                 </ul>
@@ -37,12 +38,12 @@
                     <input name="token" type="text" placeholder="Search" />
                 </form>
                 <ul class="nav secondary-nav">
-                    <li class="dropdown">
+                    <li class="dropdown ${fn:contains(nav.position, '/help') ? 'active' : ''}">
                         <a href="#" class="dropdown-toggle">Help</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Usage</a></li>
-                            <li><a href="${pageContext.request.contextPath}/resources-info">Resources Info</a></li>
-                            <li><a href="${pageContext.request.contextPath}/about">About</a></li>
+                            <li class="${nav.position == '/help/usage' ? 'active' : ''}"><a href="#">Usage</a></li>
+                            <li class="${nav.position == '/help/resources' ? 'active' : ''}"><a href="${pageContext.request.contextPath}/resources-info">Resources Info</a></li>
+                            <li class="${nav.position == '/help/about' ? 'active' : ''}"><a href="${pageContext.request.contextPath}/about">About</a></li>
                         </ul>
                     </li>
                 </ul>
