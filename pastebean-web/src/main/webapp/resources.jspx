@@ -80,7 +80,7 @@
                             <td>${line.instance.id}</td>
                             <td>
                                 <c:forEach var="endpointEntry" items="${instance.instanceEndpoints}">
-                                    ${line.endpoint.ipEndPoint} [${fn:toLowerCase(line.endpoint.protocol)}]&nbsp;
+                                    ${line.endpoint.ipEndPoint} [${fn:toLowerCase(line.endpoint.protocol)}]
                                 </c:forEach>
                             </td>
                         </tr>
