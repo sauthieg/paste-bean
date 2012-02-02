@@ -27,7 +27,7 @@
                  type="java.lang.String" />
     <jsp:useBean id="roles"
                  scope="request"
-                 type="java.util.Collection<com.microsoft.windowsazure.serviceruntime.Role>" />
+                 type="java.util.Collection" />
     <jsp:useBean id="currentInstance"
                  scope="request"
                  type="com.microsoft.windowsazure.serviceruntime.RoleInstance" />
