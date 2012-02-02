@@ -27,12 +27,12 @@
                  type="java.lang.String" />
     <jsp:useBean id="roles"
                  scope="request"
-                 type="java.util.Collection" />
+                 type="java.util.Collection<com.microsoft.windowsazure.serviceruntime.Role>" />
     <jsp:useBean id="currentInstance"
                  scope="request"
                  type="com.microsoft.windowsazure.serviceruntime.RoleInstance" />
     <jsp:useBean id="line"
-                 type="org.ow2.jonas.azure.pastebean.bean.RoleEnvironmentLine" />
+                 class="org.ow2.jonas.azure.pastebean.bean.RoleEnvironmentLine" />
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
           xmlns:c="http://java.sun.com/jsp/jstl/core"
           xmlns:fn="http://java.sun.com/jsp/jstl/functions">
@@ -56,32 +56,36 @@
             <div class="page-header">
                 <h1>Resources <small>(deployment ID: ${deploymentId})</small></h1>
             </div>
+            <p>You are currently connected on instance '${currentInstance.id}' associated to Role '${currentInstance.role.name}'.</p>
+            <p>The table below show the list of Roles and instances running this clustered application.</p>
 
             <table>
                 <thead>
                 <tr>
-                    <td>Role</td>
-                    <td>Instance</td>
-                    <td>Endpoint</td>
+                    <th>Role</th>
+                    <th>Instance</th>
+                    <th>Endpoints</th>
                 </tr>
                 </thead>
                 <c:forEach var="role" items="${roles}">
                     <jsp:setProperty name="line" property="role" value="${role}" />
 
                     <c:forEach var="instanceEntry" items="${role.instances}">
-                        <c:set scope="session" var="instance" value="${instanceEntry.value}" />
+                        <c:set var="instance" value="${instanceEntry.value}" />
                         <jsp:setProperty name="line" property="instance" value="${instance}" />
 
-                        <c:forEach var="endpointEntry" items="${instance.instanceEndpoints}">
-                            <jsp:setProperty name="line" property="endpoint" value="${endpointEntry.value}" />
-                            <tbody>
-                            <tr class="${(currentInstance.id == line.instance.id) ? 'active' : ''}">
-                                <td>${line.role.name}</td>
-                                <td>${line.instance.id}</td>
-                                <td>${line.endpoint.ipEndPoint} [${line.endpoint.protocol}]</td>
-                            </tr>
-                            </tbody>
-                        </c:forEach>
+                        <tbody>
+                        <tr class="${currentInstance.id == line.instance.id ? 'active' : ''}">
+                            <td>${line.role.name}</td>
+                            <td>${line.instance.id}</td>
+                            <td>
+                                <c:forEach var="endpointEntry" items="${instance.instanceEndpoints}">
+                                    ${line.endpoint.ipEndPoint} [${fn:toLowerCase(line.endpoint.protocol)}]&nbsp;
+                                </c:forEach>
+                            </td>
+                        </tr>
+                        </tbody>
+
                     </c:forEach>
                 </c:forEach>
             </table>
